@@ -13,6 +13,7 @@ namespace FakeXieCheng.API
     {
         public static void Main(string[] args)
         {
+            // 创建并且运行了虚拟托管服务器
             CreateHostBuilder(args).Build().Run();
         }
 
@@ -20,6 +21,7 @@ namespace FakeXieCheng.API
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
+                    // 中间件，请求通道，环境配置，在Startup里面
                     webBuilder.UseStartup<Startup>();
                 });
     }
