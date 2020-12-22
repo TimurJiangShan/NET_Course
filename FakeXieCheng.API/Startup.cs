@@ -32,14 +32,16 @@ namespace FakeXieCheng.API
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
-                endpoints.MapGet("/tests", async context =>
-                {
-                    await context.Response.WriteAsync("Hello From tests");
-                });
+                //endpoints.MapGet("/", async context =>
+                //{
+                //    await context.Response.WriteAsync("Hello World!");
+                //});
+                //endpoints.MapGet("/tests", async context =>
+                //{
+                //    await context.Response.WriteAsync("Hello From tests");
+                //});
+                /* 用Controller代替路由映射 */
+                endpoints.MapControllers();
             });
         }
     }
