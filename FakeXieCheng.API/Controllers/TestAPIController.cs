@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
+
+// 在Controller中，不管控制器本身，还是action函数，只要涉及Http的外部访问，则一定要使用public关键字
 namespace FakeXieCheng.API.Controllers
 {
     [Route("api/[controller]")]
