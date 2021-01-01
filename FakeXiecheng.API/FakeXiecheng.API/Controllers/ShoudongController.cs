@@ -11,7 +11,6 @@ namespace FakeXiecheng.API.Controllers
     [Route("api/shoudongapi")]
     public class ShoudongController : Controller
     {
-        // GET: /<controller>/
         [HttpGet]
         public IEnumerable<string> Get()
         {
