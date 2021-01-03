@@ -28,7 +28,7 @@ namespace FakeXiecheng.API
         {
             services.AddControllers();
             // 注册数据仓库的服务依赖
-            services.AddTransient<ITouristRouteRepository, MockTouristRouteRepository>();
+            services.AddTransient<ITouristRouteRepository, TouristRouteRepository>();
             // 向IOC容器中注入Db对象
             services.AddDbContext<AppDbContext>(option => {
                 //option.UseSqlServer("server=localhost; Database=FakeXiechengDb; User Id=sa; Password=PaSSword12!;");
