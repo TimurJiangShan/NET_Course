@@ -16,7 +16,7 @@ namespace C_Sharp_Language
             var Jarray = new int[3][];
 
             // Rectangular
-            var Rarray = new int[3,5];
+            var Rarray = new int[3, 5];
 
             // Array的常见属性以及方法, Array是一种Class
             /*
@@ -41,7 +41,8 @@ namespace C_Sharp_Language
             Console.WriteLine(Array.IndexOf(numbers, 56));
             Console.WriteLine("----------- Clear Method ------------");
             Array.Clear(numbers, 0, 3);
-            foreach (var n in numbers) {
+            foreach (var n in numbers)
+            {
                 Console.WriteLine(n);
             }
             Console.WriteLine("------------ Copy Method ----------");
@@ -58,7 +59,7 @@ namespace C_Sharp_Language
                 Console.WriteLine(n);
             }
 
-            Console.WriteLine("--------------  Reverse() --------");
+            Console.WriteLine("-------------- Reverse() --------");
             Array.Reverse(numbers);
             foreach (var n in numbers)
             {

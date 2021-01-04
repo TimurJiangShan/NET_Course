@@ -6,7 +6,9 @@ namespace C_Sharp_Language
     {
         static void Main(string[] args)
         {
-            ArrayClass testArray = new ArrayClass();
+            //ArrayClass testArray = new ArrayClass();
+            ListDemo list = new ListDemo();
+
         }
     }
 }
