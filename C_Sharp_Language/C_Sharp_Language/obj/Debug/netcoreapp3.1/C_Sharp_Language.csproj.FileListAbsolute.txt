@@ -1,0 +1,12 @@
+/Users/zhaojiangshan/Desktop/workspace/NET_Course/C_Sharp_Language/C_Sharp_Language/bin/Debug/netcoreapp3.1/C_Sharp_Language.deps.json
+/Users/zhaojiangshan/Desktop/workspace/NET_Course/C_Sharp_Language/C_Sharp_Language/bin/Debug/netcoreapp3.1/C_Sharp_Language.runtimeconfig.json
+/Users/zhaojiangshan/Desktop/workspace/NET_Course/C_Sharp_Language/C_Sharp_Language/bin/Debug/netcoreapp3.1/C_Sharp_Language.runtimeconfig.dev.json
+/Users/zhaojiangshan/Desktop/workspace/NET_Course/C_Sharp_Language/C_Sharp_Language/bin/Debug/netcoreapp3.1/C_Sharp_Language.dll
+/Users/zhaojiangshan/Desktop/workspace/NET_Course/C_Sharp_Language/C_Sharp_Language/bin/Debug/netcoreapp3.1/C_Sharp_Language.pdb
+/Users/zhaojiangshan/Desktop/workspace/NET_Course/C_Sharp_Language/C_Sharp_Language/obj/Debug/netcoreapp3.1/C_Sharp_Language.csprojAssemblyReference.cache
+/Users/zhaojiangshan/Desktop/workspace/NET_Course/C_Sharp_Language/C_Sharp_Language/obj/Debug/netcoreapp3.1/C_Sharp_Language.AssemblyInfoInputs.cache
+/Users/zhaojiangshan/Desktop/workspace/NET_Course/C_Sharp_Language/C_Sharp_Language/obj/Debug/netcoreapp3.1/C_Sharp_Language.AssemblyInfo.cs
+/Users/zhaojiangshan/Desktop/workspace/NET_Course/C_Sharp_Language/C_Sharp_Language/obj/Debug/netcoreapp3.1/C_Sharp_Language.csproj.CoreCompileInputs.cache
+/Users/zhaojiangshan/Desktop/workspace/NET_Course/C_Sharp_Language/C_Sharp_Language/obj/Debug/netcoreapp3.1/C_Sharp_Language.dll
+/Users/zhaojiangshan/Desktop/workspace/NET_Course/C_Sharp_Language/C_Sharp_Language/obj/Debug/netcoreapp3.1/C_Sharp_Language.pdb
+/Users/zhaojiangshan/Desktop/workspace/NET_Course/C_Sharp_Language/C_Sharp_Language/obj/Debug/netcoreapp3.1/C_Sharp_Language.genruntimeconfig.cache
