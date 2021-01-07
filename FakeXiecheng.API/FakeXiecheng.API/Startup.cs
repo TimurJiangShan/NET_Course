@@ -26,7 +26,12 @@ namespace FakeXiecheng.API
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers(setupAction => {
+                setupAction.ReturnHttpNotAcceptable = true; // 内容协商（HTTP 请求头）
+                //setupAction.OutputFormatters.Add(
+                //new XmlDataContractSerializerOutputFormatter() // 方式1：添加对XML的Output的支持
+                //);
+            }).AddXmlDataContractSerializerFormatters(); //  方式2：添加对XML的Output和Input的支持
             // 注册数据仓库的服务依赖
             services.AddTransient<ITouristRouteRepository, TouristRouteRepository>();
             // 向IOC容器中注入Db对象
