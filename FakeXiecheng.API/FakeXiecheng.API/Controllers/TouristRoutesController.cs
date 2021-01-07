@@ -22,10 +22,20 @@ namespace FakeXiecheng.API.Controllers
             _touristRouteRepository = touristRouteRepository;
         }
 
+        // action函数会自动匹配控制器的路由
+
+        [HttpGet]
         public IActionResult GetTouristRoutes()
         {
             var routes = _touristRouteRepository.GetTouristRoutes();
             return Ok(routes);
+        }
+
+        // 花括号填动态变量
+        [HttpGet("{touristRouteId}")]
+        public IActionResult GetTouristRouteById(Guid touristRouteId)
+        {
+            return Ok(_touristRouteRepository.GetTouristRoute(touristRouteId));
         }
     }
 }
