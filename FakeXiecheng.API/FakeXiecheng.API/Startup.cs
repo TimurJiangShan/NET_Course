@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using AutoMapper;
 
 namespace FakeXiecheng.API
 {
@@ -40,6 +41,9 @@ namespace FakeXiecheng.API
                 option.UseSqlServer(Configuration["DbContext:ConnectionString"]);
                 //option.UseMySql(Configuration["DbContext:MySQLConnectionString"]);
             });
+
+            // 扫描profile文件
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

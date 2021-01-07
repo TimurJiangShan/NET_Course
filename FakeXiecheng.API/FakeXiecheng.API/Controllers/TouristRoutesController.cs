@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using FakeXiecheng.API.Services;
 using Microsoft.AspNetCore.Mvc;
+using AutoMapper;
+using FakeXiecheng.API.Dtos;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -16,10 +18,12 @@ namespace FakeXiecheng.API.Controllers
     public class TouristRoutesController : ControllerBase
     {
         private ITouristRouteRepository _touristRouteRepository;
+        private readonly IMapper _mapper;
 
-        public TouristRoutesController(ITouristRouteRepository touristRouteRepository)
+        public TouristRoutesController(ITouristRouteRepository touristRouteRepository, IMapper mapper)
         {
             _touristRouteRepository = touristRouteRepository;
+            _mapper = mapper;
         }
 
         // action函数会自动匹配控制器的路由
@@ -32,7 +36,10 @@ namespace FakeXiecheng.API.Controllers
             {
                 return NotFound("没有旅游路线");
             }
-            return Ok(touristRoutesFromRepo);
+
+            // 使用IEnumerable进行列表的映射
+            var touristRouteDto = _mapper.Map<IEnumerable<TouristRouteDto>>(touristRoutesFromRepo);
+            return Ok(touristRouteDto);
         }
 
         // 花括号填动态变量
@@ -44,7 +51,8 @@ namespace FakeXiecheng.API.Controllers
             {
                 return NotFound($"旅游路线{touristRouteId}找不到");
             }
-            return Ok(touristRouteFromRepo);
+            var touristRouteDto = _mapper.Map<TouristRouteDto>(touristRouteFromRepo);
+            return Ok(touristRouteDto);
         }
     }
 }
