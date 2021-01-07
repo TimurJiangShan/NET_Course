@@ -27,15 +27,24 @@ namespace FakeXiecheng.API.Controllers
         [HttpGet]
         public IActionResult GetTouristRoutes()
         {
-            var routes = _touristRouteRepository.GetTouristRoutes();
-            return Ok(routes);
+            var touristRoutesFromRepo = _touristRouteRepository.GetTouristRoutes();
+            if (touristRoutesFromRepo == null || touristRoutesFromRepo.Count() <= 0)
+            {
+                return NotFound("没有旅游路线");
+            }
+            return Ok(touristRoutesFromRepo);
         }
 
         // 花括号填动态变量
         [HttpGet("{touristRouteId}")]
         public IActionResult GetTouristRouteById(Guid touristRouteId)
         {
-            return Ok(_touristRouteRepository.GetTouristRoute(touristRouteId));
+            var touristRouteFromRepo = _touristRouteRepository.GetTouristRoute(touristRouteId);
+            if (touristRouteFromRepo == null)
+            {
+                return NotFound($"旅游路线{touristRouteId}找不到");
+            }
+            return Ok(touristRouteFromRepo);
         }
     }
 }
