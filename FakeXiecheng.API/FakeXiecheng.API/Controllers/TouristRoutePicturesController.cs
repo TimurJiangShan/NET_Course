@@ -36,7 +36,26 @@ namespace FakeXiecheng.API.Controllers
             }
 
             // 使用IEnumerable进行列表的映射
-            var touristRoutePictureDto = _mapper.Map<IEnumerable<TouristRoutePictureDto>>(pictruesFromRepo);
+            var touristRoutePicturesDto = _mapper.Map<IEnumerable<TouristRoutePictureDto>>(pictruesFromRepo);
+            return Ok(touristRoutePicturesDto);
+        }
+
+        [HttpGet("{pictureId}")]
+        public IActionResult GetPicture(Guid touristRouteId, int pictureId)
+        {
+            // 处理有父子关系或者嵌套关系的时候，首先要取得父资源，然后在父资源的基础上再获得子资源，如果父资源不存在，那么最好也不要暴露子资源
+            if (!_touristRouteRepository.TouristRouteExists(touristRouteId))
+            {
+                return NotFound("旅游路线不存在");
+            }
+
+            var pictureFromRepo = _touristRouteRepository.GetPicture(pictureId);
+            if (pictureFromRepo == null)
+            {
+                return NotFound("相片不存在");
+            }
+
+            var touristRoutePictureDto = _mapper.Map<TouristRoutePictureDto>(pictureFromRepo);
             return Ok(touristRoutePictureDto);
         }
     }
