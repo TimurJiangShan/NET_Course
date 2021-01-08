@@ -9,6 +9,7 @@ namespace FakeXiecheng.API.Profiles
     {
         public TouristRoutePictureProfile()
         {
+            // 需要更改映射项的时候才需要 ForMember()
             CreateMap<TouristRoutePicture, TouristRoutePictureDto>();
         }
     }
