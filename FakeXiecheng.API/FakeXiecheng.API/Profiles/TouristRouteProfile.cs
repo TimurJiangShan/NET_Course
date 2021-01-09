@@ -9,7 +9,7 @@ namespace FakeXiecheng.API.Profiles
     {
         public TouristRouteProfile()
         {
-            // 自动映射两个对象中名字相同的字段
+            // 自动映射两个对象中名字相同的字段, forMember中是映射名字不同的
             CreateMap<TouristRoute, TouristRouteDto>().ForMember(
                     dest => dest.Price,
                     opt => opt.MapFrom(src => src.OriginalPrice * (decimal)(src.DiscountPercent ?? 1))

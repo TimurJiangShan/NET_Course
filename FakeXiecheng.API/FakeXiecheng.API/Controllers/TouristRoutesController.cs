@@ -27,7 +27,7 @@ namespace FakeXiecheng.API.Controllers
         }
 
         // action函数会自动匹配控制器的路由
-
+        [HttpHead]
         [HttpGet]
         public IActionResult GetTouristRoutes()
         {
@@ -44,6 +44,7 @@ namespace FakeXiecheng.API.Controllers
 
         // 花括号填动态变量
         [HttpGet("{touristRouteId}")]
+        [HttpHead("{touristRouteId}")]
         public IActionResult GetTouristRouteById(Guid touristRouteId)
         {
             var touristRouteFromRepo = _touristRouteRepository.GetTouristRoute(touristRouteId);

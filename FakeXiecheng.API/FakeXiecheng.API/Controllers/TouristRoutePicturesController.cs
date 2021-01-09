@@ -22,6 +22,7 @@ namespace FakeXiecheng.API.Controllers
         }
 
         [HttpGet]
+        [HttpHead]
         public IActionResult GetPictureListForTouristRoute(Guid touristRouteId)
         {
             if(!_touristRouteRepository.TouristRouteExists(touristRouteId))
