@@ -32,7 +32,7 @@ namespace FakeXiecheng.API
                 //setupAction.OutputFormatters.Add(
                 //new XmlDataContractSerializerOutputFormatter() // 方式1：添加对XML的Output的支持
                 //);
-            }).AddXmlDataContractSerializerFormatters(); //  方式2：添加对XML的Output和Input的支持
+            }).AddXmlDataContractSerializerFormatters(); //  方式2：添加对XML的Output和Input的支持(推荐方式2)
             // 注册数据仓库的服务依赖
             services.AddTransient<ITouristRouteRepository, TouristRouteRepository>();
             // 向IOC容器中注入Db对象
