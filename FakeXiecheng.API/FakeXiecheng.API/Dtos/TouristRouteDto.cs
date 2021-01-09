@@ -24,5 +24,7 @@ namespace FakeXiecheng.API.Dtos
         public string TravelDays { get; set; }
         public string TripType { get; set; }
         public string DepartureCity { get; set; }
+        // 两个字段完全一致的时候，automapper可以做自动映射
+        public ICollection<TouristRoutePictureDto> TouristRoutePictures { get; set; }
     }
 }
