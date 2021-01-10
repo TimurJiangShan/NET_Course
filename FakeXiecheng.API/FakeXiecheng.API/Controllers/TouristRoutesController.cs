@@ -32,6 +32,12 @@ namespace FakeXiecheng.API.Controllers
         [HttpGet]
         public IActionResult GetTouristRoutes([FromQuery] string keyword) // FromQuery vs FromBody
         {
+            /*
+             * [ApiController] 里面有attribute， 所以上面函数参数里面的 [FromQuery]是可以省略的， ASP会自动帮我们绑定URL中的参数，
+             * 但是为了让代码更有逻辑性，还是不要省略这个attribute。 而且FromQuery还有另一个用处，就是如果url的参数命名与action函数
+             * 参数的名称不一致，一定要使用FromQuery的name属性匹配一下， [FromQuery(name="")]。
+             * 在这个项目中，参数的名称是一致的，所以不需要做这一步。
+             * **/
             var touristRoutesFromRepo = _touristRouteRepository.GetTouristRoutes(keyword);
             if (touristRoutesFromRepo == null || touristRoutesFromRepo.Count() <= 0)
             {
