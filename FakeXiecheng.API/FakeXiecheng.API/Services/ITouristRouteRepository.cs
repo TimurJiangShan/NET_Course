@@ -16,5 +16,9 @@ namespace FakeXiecheng.API.Services
         IEnumerable<TouristRoutePicture> GetPicturesByTouristRouteId(Guid touristRouteId);
 
         TouristRoutePicture GetPicture(int pictureId);
+
+        void AddTouristRoute(TouristRoute touristRoute);
+
+        bool Save();
     }
 }

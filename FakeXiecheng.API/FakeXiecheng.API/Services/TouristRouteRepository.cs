@@ -67,5 +67,25 @@ namespace FakeXiecheng.API.Services
         {
             return _context.TouristRoutePictures.Where(p => p.Id == pictureId).FirstOrDefault();
         }
+
+        public void AddTouristRoute(TouristRoute touristRoute)
+        {
+            // 1.判断数据是否合法
+            if (touristRoute == null)
+            {
+                throw new ArgumentNullException(nameof(touristRoute));
+            }
+
+            // 2.将新数据保存在上下文关系对象中
+            _context.TouristRoutes.Add(touristRoute);
+
+        }
+
+        // 3.把数据写入数据库
+        public bool Save()
+        {
+            // 大于等于0表示成功
+            return (_context.SaveChanges() >= 0);
+        }
     }
 }

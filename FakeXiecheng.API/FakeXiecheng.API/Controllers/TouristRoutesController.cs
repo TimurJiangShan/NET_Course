@@ -8,6 +8,7 @@ using AutoMapper;
 using FakeXiecheng.API.Dtos;
 using System.Text.RegularExpressions;
 using FakeXiecheng.API.ResourceParameters;
+using FakeXiecheng.API.Models;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -58,7 +59,7 @@ namespace FakeXiecheng.API.Controllers
 
         // api/touristRoutes/{touristRouteId}       touristRouteId 这里匹配的是花括号的中的参数
         // 花括号填动态变量
-        [HttpGet("{touristRouteId}")]
+        [HttpGet("{touristRouteId}", Name = "GetTouristRouteById")]
         [HttpHead("{touristRouteId}")]
         public IActionResult GetTouristRouteById(Guid touristRouteId)
         {
@@ -69,6 +70,33 @@ namespace FakeXiecheng.API.Controllers
             }
             var touristRouteDto = _mapper.Map<TouristRouteDto>(touristRouteFromRepo);
             return Ok(touristRouteDto);
+        }
+
+        [HttpPost]
+        public IActionResult CreateTouristRoute([FromBody] TouristRouteForCreationDto touristRouteForCreationDto)
+        {
+            // 需要新建一个DTO，专门用来处理资源创建的数据输入
+            /*
+             * DTO 是一种复杂的对象，ASP.NET 中自带了反序列化的功能， 自动将请求主题的内容解析并加在TouristRouteForCreationDto中
+             * **/
+            // 1. 使用Automapper创建新DTO与Model的映射关系，因为我们已经有了TouristRouteProfile, 所以直接使用这个profile，加上新的映射关系
+            var touristRouteModel = _mapper.Map<TouristRoute>(touristRouteForCreationDto);
+
+            // 2. 数据添加进DbContext
+            _touristRouteRepository.AddTouristRoute(touristRouteModel);
+
+            // 3. 数据库的保存
+            _touristRouteRepository.Save();
+
+            // 4. 返回给前端DTO，需要把touristRouteModel 映射成 touristRouteDto
+            var touristRouteToReturn = _mapper.Map<TouristRouteDto>(touristRouteModel);
+
+            // 5. 返回201 Create
+            return CreatedAtRoute(
+                "GetTouristRouteById",
+                new { touristRouteId = touristRouteToReturn.Id },
+                touristRouteToReturn
+            );
         }
     }
 }
