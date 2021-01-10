@@ -21,7 +21,7 @@ namespace FakeXiecheng.API.Services
             return _context.TouristRoutes.Include(t => t.TouristRoutePictures).FirstOrDefault(n => n.Id == touristRouteId);
         }
         // C#中，Linq to SQL 的返回类型就是 IQueryable: 叠加处理Linq语句，最后返回数据库，这个处理过程叫延迟执行
-        public IEnumerable<TouristRoute> GetTouristRoutes(string keyword, string ratingOperator, int ratingValue)
+        public IEnumerable<TouristRoute> GetTouristRoutes(string keyword, string ratingOperator, int? ratingValue)
         {
             // include vs join
             // 把图片信息也加载进来
