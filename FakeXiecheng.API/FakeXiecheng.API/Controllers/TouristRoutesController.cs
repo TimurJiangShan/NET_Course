@@ -26,12 +26,13 @@ namespace FakeXiecheng.API.Controllers
             _mapper = mapper;
         }
 
+        // api/touristRoutes?keyword=传入的参数      keyword这里匹配的是问号后面的部分
         // action函数会自动匹配控制器的路由
         [HttpHead]
         [HttpGet]
-        public IActionResult GetTouristRoutes()
+        public IActionResult GetTouristRoutes([FromQuery] string keyword) // FromQuery vs FromBody
         {
-            var touristRoutesFromRepo = _touristRouteRepository.GetTouristRoutes();
+            var touristRoutesFromRepo = _touristRouteRepository.GetTouristRoutes(keyword);
             if (touristRoutesFromRepo == null || touristRoutesFromRepo.Count() <= 0)
             {
                 return NotFound("没有旅游路线");
@@ -42,6 +43,7 @@ namespace FakeXiecheng.API.Controllers
             return Ok(touristRouteDto);
         }
 
+        // api/touristRoutes/{touristRouteId}       touristRouteId 这里匹配的是花括号的中的参数
         // 花括号填动态变量
         [HttpGet("{touristRouteId}")]
         [HttpHead("{touristRouteId}")]
