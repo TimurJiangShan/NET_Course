@@ -15,6 +15,7 @@ namespace FakeXiecheng.API.ResourceParameters
             set
             {
                 // value就是接收到的值, 对rating进行 null和空字符串的判断
+                // 正则匹配两个部分
                 if (!string.IsNullOrWhiteSpace(value))
                 {
                     Regex regex = new Regex(@"([A-Za-z0-9\-]+)(\d+)");
