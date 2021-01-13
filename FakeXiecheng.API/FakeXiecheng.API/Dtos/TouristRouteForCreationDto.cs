@@ -5,6 +5,7 @@ namespace FakeXiecheng.API.Dtos
 {
     public class TouristRouteForCreationDto
     {
+        // Creation 单独做一个DTO，和TouristRoute区分开
         public string Title { get; set; }
         public string Description { get; set; }
         // 计算方式：原价 * 折扣
