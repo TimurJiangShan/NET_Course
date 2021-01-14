@@ -44,6 +44,7 @@ namespace FakeXiecheng.API.Controllers
              * 但是为了让代码更有逻辑性，还是不要省略这个attribute。 而且FromQuery还有另一个用处，就是如果url的参数命名与action函数
              * 参数的名称不一致，一定要使用FromQuery的name属性匹配一下， [FromQuery(name="")]。
              * 在这个项目中，参数的名称是一致的，所以不需要做这一步。
+             * 写上可以使得更清晰
              * **/
 
             var touristRoutesFromRepo = _touristRouteRepository.GetTouristRoutes(parameters.Keyword, parameters.RatingOperator, parameters.RatingValue);
