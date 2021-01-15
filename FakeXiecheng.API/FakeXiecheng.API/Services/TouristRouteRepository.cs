@@ -67,7 +67,9 @@ namespace FakeXiecheng.API.Services
         {
             return _context.TouristRoutePictures.Where(p => p.Id == pictureId).FirstOrDefault();
         }
-
+        // 1.判断数据是否合法
+        // 2.将新数据保存在上下文关系对象中
+        // 3.把数据写入数据库
         public void AddTouristRoute(TouristRoute touristRoute)
         {
             // 1.判断数据是否合法
