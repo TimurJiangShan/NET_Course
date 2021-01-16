@@ -17,7 +17,7 @@ namespace FakeXiecheng.API
 {
     public class Startup
     {
-        // 配置依赖注入服务，创建一个私有变量存储配置信息。
+        // 配置依赖注入服务，创建一个私有变量存储配置信息。appsettings.json 配置连接字符串。
         public IConfiguration Configuration { get; }
         public Startup(IConfiguration configuration)
         {
