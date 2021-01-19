@@ -22,6 +22,7 @@ namespace FakeXiecheng.API.Models
         /*
             可空的，nullable，所以加个问号，问号在C#中表示可空变量，
             转换为数据库，则代表一个列可以没有初始数据。
+            要注意Model和DTO的区别
          */
         [Range(0.0, 1.0)]
         public double? DiscountPercent { get; set; }

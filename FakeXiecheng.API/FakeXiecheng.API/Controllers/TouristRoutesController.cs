@@ -12,7 +12,7 @@ using FakeXiecheng.API.Models;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-// Get请求没有body。可以使用请求头部的header,添加媒体类型, 设置 accept application/json 这一步属于数据协商
+// Get请求没有body。可以使用请求头部的header,添加媒体类型, 设置 accept application/json 这一步属于数据协商 Content negotiation
 
 namespace FakeXiecheng.API.Controllers
 {
