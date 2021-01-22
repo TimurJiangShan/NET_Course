@@ -20,6 +20,13 @@ namespace FakeXiecheng.API.Controllers
     [ApiController]
     public class TouristRoutesController : ControllerBase
     {
+        /*
+         *  To enable JSON Patch support in your app, complete the following steps:
+
+            Install the Microsoft.AspNetCore.Mvc.NewtonsoftJson NuGet package.
+
+            Update the project's Startup.ConfigureServices method to call AddNewtonsoftJson. For example:
+         * **/
         private ITouristRouteRepository _touristRouteRepository;
         private readonly IMapper _mapper;
 
